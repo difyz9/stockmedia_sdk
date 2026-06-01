@@ -1,6 +1,6 @@
-﻿"""
-stockmedia_sdk SDK 鈥?Basic Usage Examples
-=====================================
+"""
+Stockmedia SDK — Basic Usage Examples
+======================================
 
 Set your API keys as environment variables or replace them below.
 
@@ -34,12 +34,12 @@ from stockmedia_sdk import (
 
 def pexels_demo():
     print("\n" + "=" * 60)
-    print("馃煝 Pexels SDK Demo")
+    print("Pexels SDK Demo")
     print("=" * 60)
 
     api_key = os.getenv("PEXELS_API_KEY", "")
     if not api_key:
-        print("鈿狅笍  Set PEXELS_API_KEY to run Pexels examples.")
+        print("Set PEXELS_API_KEY to run Pexels examples.")
         return
 
     client = PexelsClient(api_key)
@@ -90,12 +90,12 @@ def pexels_demo():
 
 def pixabay_demo():
     print("\n" + "=" * 60)
-    print("馃煚 Pixabay SDK Demo")
+    print("Pixabay SDK Demo")
     print("=" * 60)
 
     api_key = os.getenv("PIXABAY_API_KEY", "")
     if not api_key:
-        print("鈿狅笍  Set PIXABAY_API_KEY to run Pixabay examples.")
+        print("Set PIXABAY_API_KEY to run Pixabay examples.")
         return
 
     client = PixabayClient(api_key)
@@ -140,13 +140,13 @@ def pixabay_demo():
     print("\n6. Context manager")
     with PixabayClient(api_key) as ctx:
         img = ctx.get_image(195893)
-        print(f"  Got image: {img.user} 鈥?{img.page_url}")
+        print(f"  Got image: {img.user} - {img.page_url}")
 
 
 def main():
     pexels_demo()
     pixabay_demo()
-    print("\n鉁?All examples completed!")
+    print("\nAll examples completed!")
 
 
 if __name__ == "__main__":

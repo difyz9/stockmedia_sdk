@@ -1,6 +1,6 @@
-﻿# 馃彟 stockmedia_sdk
+# stockmedia-sdk
 
-Python SDKs for free stock media APIs 鈥?[Pexels](https://www.pexels.com/api/documentation/) + [Pixabay](https://pixabay.com/api/docs/), cleanly wrapped.
+Python SDKs for free stock media APIs — [Pexels](https://www.pexels.com/api/documentation/) + [Pixabay](https://pixabay.com/api/docs/), cleanly wrapped.
 
 ```python
 from stockmedia_sdk import PexelsClient, PixabayClient
@@ -11,21 +11,21 @@ pixabay = PixabayClient(api_key="...")
 
 ## Features
 
-- 鉁?**Pexels**: Photos, Videos, Collections
-- 鉁?**Pixabay**: Images, Videos with all quality variants
-- 鉁?Full type annotations with frozen dataclass models
-- 鉁?Enum-based parameter validation
-- 鉁?Auto-pagination helpers (`*_all()` methods)
-- 鉁?Rate limit tracking from response headers
-- 鉁?Typed exception hierarchy
-- 鉁?Retry logic for transient failures
-- 鉁?Context manager support
-- 鉁?Zero heavy dependencies (only `requests`)
+- **Pexels**: Photos, Videos, Collections
+- **Pixabay**: Images, Videos with all quality variants
+- Full type annotations with frozen dataclass models
+- Enum-based parameter validation
+- Auto-pagination helpers (`*_all()` methods)
+- Rate limit tracking from response headers
+- Typed exception hierarchy
+- Retry logic for transient failures
+- Context manager support
+- Zero heavy dependencies (only `requests`)
 
 ## Installation
 
 ```bash
-pip install stockmedia_sdk
+pip install stockmedia-sdk
 ```
 
 ---
@@ -176,13 +176,13 @@ Replace `_640` in `webformat_url` or use convenience properties:
 img.webformat_url    # max 640px
 img.webformat_180    # 180px tall
 img.webformat_340    # 340px tall
-img.webformat_960    # 960 脳 720 px
+img.webformat_960    # 960 x 720 px
 img.large_image_url  # max 1280px
 ```
 
 ---
 
-## Data Models at a Glance
+## Data Models
 
 | Pexels | Pixabay |
 |--------|---------|
