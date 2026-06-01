@@ -1,0 +1,26 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# Test files with secrets
+test_api.py
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
