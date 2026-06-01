@@ -30,9 +30,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/difyz9/pexels-sdk"
-Repository = "https://github.com/difyz9/pexels-sdk"
-Issues = "https://github.com/difyz9/pexels-sdk/issues"
+Homepage = "https://github.com/difyz9/pexels_sdk"
+Repository = "https://github.com/difyz9/pexels_sdk"
+Issues = "https://github.com/difyz9/pexels_sdk/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
