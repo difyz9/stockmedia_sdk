@@ -23,7 +23,7 @@ pip install -e .
 Or install from PyPI (coming soon):
 
 ```bash
-pip install pexels-sdk-py
+pip install pexels-sdk
 ```
 
 ## Quick Start
