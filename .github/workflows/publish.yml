@@ -41,18 +41,6 @@ jobs:
           name: python-package-distributions
           path: dist/
 
-  publish:
-    name: Publish To PyPI
-    needs: build
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-
-    environment:
-      name: pypi
-      url: https://pypi.org/p/stockmedia-sdk
-
-    permissions:
-      id-token: write
 
   publish:
     name: Publish To PyPI
