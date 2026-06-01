@@ -73,4 +73,9 @@ __all__ = [
     "PexelsServerError",
 ]
 
-__version__ = "1.0.0"
+from importlib.metadata import version as _version
+
+try:
+    __version__ = _version("pexels-sdk")
+except Exception:
+    __version__ = "0.0.0.dev"

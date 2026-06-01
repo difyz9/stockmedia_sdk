@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=64.0", "wheel"]
+requires = ["setuptools>=64.0", "wheel", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -38,5 +38,4 @@ Issues = "https://github.com/difyz9/pexels_sdk/issues"
 where = ["src"]
 include = ["pexels_sdk*"]
 
-[tool.setuptools.dynamic]
-version = {attr = "pexels_sdk.__version__"}
+[tool.setuptools_scm]
