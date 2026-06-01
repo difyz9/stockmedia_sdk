@@ -3,7 +3,8 @@ Pexels API client.
 
 Usage::
 
-    from pexels_sdk import PexelsClient
+    from stockpile.pexels import PexelsClient
+    # or: from stockpile import PexelsClient
 
     client = PexelsClient(api_key="YOUR_API_KEY")
 

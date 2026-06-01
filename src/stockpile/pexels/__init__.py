@@ -1,9 +1,12 @@
 """
-Pexels SDK for Python — A clean, typed wrapper for the Pexels API v1.
+Pexels API client for stockpile — a clean, typed wrapper for the Pexels API v1.
 
 Usage::
 
-    from pexels_sdk import PexelsClient
+    from stockpile.pexels import PexelsClient
+
+    # or via the top-level package:
+    # from stockpile import PexelsClient
 
     client = PexelsClient(api_key="YOUR_API_KEY")
 
@@ -76,6 +79,6 @@ __all__ = [
 from importlib.metadata import version as _version
 
 try:
-    __version__ = _version("pexels-sdk")
+    __version__ = _version("stockpile")
 except Exception:
     __version__ = "0.0.0.dev"
