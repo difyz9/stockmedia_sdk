@@ -3,13 +3,13 @@ requires = ["setuptools>=64.0", "wheel", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "stockpile"
+name = "stockmedia-sdk"
 dynamic = ["version"]
 description = "Python SDKs for free stock media APIs — Pexels, Pixabay, and more."
 readme = "README.md"
 license = "MIT"
 authors = [
-    {name = "Stockpile Contributors"}
+    {name = "Stockmedia Contributors"}
 ]
 keywords = ["pexels", "pixabay", "stock-photos", "api", "sdk", "photos", "videos"]
 classifiers = [
@@ -30,12 +30,12 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/difyz9/stockpile"
-Repository = "https://github.com/difyz9/stockpile"
-Issues = "https://github.com/difyz9/stockpile/issues"
+Homepage = "https://github.com/difyz9/stockmedia_sdk"
+Repository = "https://github.com/difyz9/stockmedia_sdk"
+Issues = "https://github.com/difyz9/stockmedia_sdk/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["stockpile", "stockpile.*"]
+include = ["stockmedia_sdk", "stockmedia_sdk.*"]
 
 [tool.setuptools_scm]

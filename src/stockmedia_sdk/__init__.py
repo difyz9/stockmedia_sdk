@@ -1,9 +1,9 @@
-"""
-Stockpile — Python SDKs for free stock media APIs.
+﻿"""
+stockmedia_sdk 鈥?Python SDKs for free stock media APIs.
 
 Usage::
 
-    from stockpile import PexelsClient, PixabayClient
+    from stockmedia_sdk import PexelsClient, PixabayClient
 
     # Pexels
     pexels = PexelsClient(api_key="...")
@@ -16,7 +16,7 @@ Usage::
         print(img.webformat_url)
 """
 
-# ── Pexels ───────────────────────────────────────────────────────────────
+# 鈹€鈹€ Pexels 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 from .pexels.client import PexelsClient
 from .pexels.enums import CollectionType, Color, Locale, Orientation, Size, SortOrder
@@ -39,7 +39,7 @@ from .pexels.models import (
     VideoUser,
 )
 
-# ── Pixabay ──────────────────────────────────────────────────────────────
+# 鈹€鈹€ Pixabay 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 from .pixabay.client import PixabayClient
 from .pixabay.enums import Category, ImageType, Language, Order, VideoType
@@ -96,6 +96,6 @@ __all__ = [
 from importlib.metadata import version as _version
 
 try:
-    __version__ = _version("stockpile")
+    __version__ = _version("stockmedia_sdk")
 except Exception:
     __version__ = "0.0.0.dev"

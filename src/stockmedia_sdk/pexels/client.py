@@ -1,10 +1,10 @@
-"""
+﻿"""
 Pexels API client.
 
 Usage::
 
-    from stockpile.pexels import PexelsClient
-    # or: from stockpile import PexelsClient
+    from stockmedia_sdk.pexels import PexelsClient
+    # or: from stockmedia_sdk import PexelsClient
 
     client = PexelsClient(api_key="YOUR_API_KEY")
 
@@ -39,7 +39,7 @@ from .exceptions import (
 )
 from .models import Collection, PagedResponse, Photo, RateLimitInfo, Video
 
-# ── Constants ─────────────────────────────────────────────────────────
+# 鈹€鈹€ Constants 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 BASE_URL = "https://api.pexels.com/v1"
 DEFAULT_PAGE = 1
@@ -48,7 +48,7 @@ MAX_PER_PAGE = 80
 DEFAULT_TIMEOUT = 30  # seconds
 
 
-# ── Helpers ───────────────────────────────────────────────────────────
+# 鈹€鈹€ Helpers 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 
 def _clean_params(params: dict[str, Any]) -> dict[str, Any]:
@@ -56,7 +56,7 @@ def _clean_params(params: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in params.items() if v is not None}
 
 
-# ── Client ────────────────────────────────────────────────────────────
+# 鈹€鈹€ Client 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 
 class PexelsClient:
@@ -110,14 +110,14 @@ class PexelsClient:
             self._session.mount("https://", adapter)
             self._session.mount("http://", adapter)
 
-    # ── Rate limit info ───────────────────────────────────────────────
+    # 鈹€鈹€ Rate limit info 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     @property
     def rate_limit_info(self) -> RateLimitInfo | None:
         """Rate limit status from the most recent API call."""
         return self._last_rate_limit_info
 
-    # ── Internal request helpers ──────────────────────────────────────
+    # 鈹€鈹€ Internal request helpers 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def _parse_rate_limit(self, response: requests.Response) -> RateLimitInfo:
         """Extract rate limit info from response headers."""
@@ -151,7 +151,7 @@ class PexelsClient:
         if response.status_code == 200:
             return response.json()
 
-        # ── Error handling ──
+        # 鈹€鈹€ Error handling 鈹€鈹€
         try:
             body = response.json()
         except ValueError:
@@ -248,7 +248,7 @@ class PexelsClient:
             return "collections"
         return "photos"
 
-    # ── Photos API ────────────────────────────────────────────────────
+    # 鈹€鈹€ Photos API 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def search_photos(
         self,
@@ -269,7 +269,7 @@ class PexelsClient:
             color: Filter by dominant color (named color or hex like '#ff0000').
             locale: Search locale for localized results.
             page: Page number (starts at 1).
-            per_page: Results per page (1–80, default 15).
+            per_page: Results per page (1鈥?0, default 15).
 
         Returns:
             PagedResponse of Photo objects.
@@ -308,7 +308,7 @@ class PexelsClient:
             size: Minimum photo size.
             color: Filter by dominant color.
             locale: Search locale.
-            per_page: Results per page (1–80).
+            per_page: Results per page (1鈥?0).
             max_pages: Maximum pages to fetch (None = all).
 
         Yields:
@@ -336,7 +336,7 @@ class PexelsClient:
 
         Args:
             page: Page number (starts at 1).
-            per_page: Results per page (1–80).
+            per_page: Results per page (1鈥?0).
 
         Returns:
             PagedResponse of Photo objects.
@@ -370,7 +370,7 @@ class PexelsClient:
         data = self._request(f"/photos/{photo_id}")
         return Photo.from_dict(data)
 
-    # ── Videos API ────────────────────────────────────────────────────
+    # 鈹€鈹€ Videos API 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def search_videos(
         self,
@@ -389,7 +389,7 @@ class PexelsClient:
             size: Minimum video size.
             locale: Search locale.
             page: Page number.
-            per_page: Results per page (1–80).
+            per_page: Results per page (1鈥?0).
 
         Returns:
             PagedResponse of Video objects.
@@ -449,7 +449,7 @@ class PexelsClient:
             min_duration: Minimum video duration in seconds.
             max_duration: Maximum video duration in seconds.
             page: Page number.
-            per_page: Results per page (1–80).
+            per_page: Results per page (1鈥?0).
 
         Returns:
             PagedResponse of Video objects.
@@ -497,7 +497,7 @@ class PexelsClient:
         data = self._request(f"/videos/videos/{video_id}")
         return Video.from_dict(data)
 
-    # ── Collections API ───────────────────────────────────────────────
+    # 鈹€鈹€ Collections API 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def featured_collections(
         self,
@@ -508,7 +508,7 @@ class PexelsClient:
 
         Args:
             page: Page number.
-            per_page: Results per page (1–80).
+            per_page: Results per page (1鈥?0).
 
         Returns:
             PagedResponse of Collection objects.
@@ -540,7 +540,7 @@ class PexelsClient:
             type: Media type filter ("photos" or "videos").
             sort: Sort order ("asc" or "desc").
             page: Page number.
-            per_page: Results per page (1–80).
+            per_page: Results per page (1鈥?0).
 
         Returns:
             PagedResponse of Photo or Video objects depending on the type.
@@ -592,7 +592,7 @@ class PexelsClient:
             f"/collections/{collection_id}", params, model_from_dict, max_pages
         )
 
-    # ── Cleanup ───────────────────────────────────────────────────────
+    # 鈹€鈹€ Cleanup 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def close(self) -> None:
         """Close the underlying HTTP session."""

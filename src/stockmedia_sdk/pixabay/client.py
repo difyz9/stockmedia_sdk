@@ -1,10 +1,10 @@
-"""
+﻿"""
 Pixabay API client.
 
 Usage::
 
-    from stockpile.pixabay import PixabayClient
-    # or: from stockpile import PixabayClient
+    from stockmedia_sdk.pixabay import PixabayClient
+    # or: from stockmedia_sdk import PixabayClient
 
     client = PixabayClient(api_key="YOUR_API_KEY")
 
@@ -43,7 +43,7 @@ from .exceptions import (
 )
 from .models import Image, PixabayResponse, RateLimitInfo, Video
 
-# ── Constants ───────────────────────────────────────────────────────────
+# 鈹€鈹€ Constants 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 BASE_URL_IMAGES = "https://pixabay.com/api/"
 BASE_URL_VIDEOS = "https://pixabay.com/api/videos/"
@@ -54,7 +54,7 @@ MAX_TOTAL_RESULTS = 500  # Pixabay caps responses at 500 hits per query
 DEFAULT_TIMEOUT = 30  # seconds
 
 
-# ── Helpers ─────────────────────────────────────────────────────────────
+# 鈹€鈹€ Helpers 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 
 def _clean_params(params: dict[str, Any]) -> dict[str, Any]:
@@ -71,7 +71,7 @@ def _to_pixabay_param(value: Any) -> str | None:
     return str(value)
 
 
-# ── Client ──────────────────────────────────────────────────────────────
+# 鈹€鈹€ Client 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 
 class PixabayClient:
@@ -123,14 +123,14 @@ class PixabayClient:
             self._session.mount("https://", adapter)
             self._session.mount("http://", adapter)
 
-    # ── Rate limit info ─────────────────────────────────────────────────
+    # 鈹€鈹€ Rate limit info 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     @property
     def rate_limit_info(self) -> RateLimitInfo | None:
         """Rate limit status from the most recent API call."""
         return self._last_rate_limit_info
 
-    # ── Internal request helpers ────────────────────────────────────────
+    # 鈹€鈹€ Internal request helpers 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def _parse_rate_limit(self, response: requests.Response) -> RateLimitInfo:
         """Extract rate limit info from response headers."""
@@ -166,7 +166,7 @@ class PixabayClient:
         if response.status_code == 200:
             return response.json()
 
-        # ── Error handling ──
+        # 鈹€鈹€ Error handling 鈹€鈹€
         error_msg = response.text.strip()
 
         if response.status_code in (401, 403):
@@ -257,7 +257,7 @@ class PixabayClient:
 
             page += 1
 
-    # ── Images API ──────────────────────────────────────────────────────
+    # 鈹€鈹€ Images API 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def search_images(
         self,
@@ -292,7 +292,7 @@ class PixabayClient:
             safesearch: If True, only return images suitable for all ages.
             order: Sort order (popular, latest).
             page: Page number (starts at 1).
-            per_page: Results per page (3–200, default 20).
+            per_page: Results per page (3鈥?00, default 20).
 
         Returns:
             PixabayResponse of Image objects.
@@ -395,7 +395,7 @@ class PixabayClient:
             raise PixabayNotFoundError(f"Image {image_id} not found")
         return Image.from_dict(hits_data[0])
 
-    # ── Videos API ──────────────────────────────────────────────────────
+    # 鈹€鈹€ Videos API 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def search_videos(
         self,
@@ -425,7 +425,7 @@ class PixabayClient:
             safesearch: If True, only return videos suitable for all ages.
             order: Sort order (popular, latest).
             page: Page number (starts at 1).
-            per_page: Results per page (3–200, default 20).
+            per_page: Results per page (3鈥?00, default 20).
 
         Returns:
             PixabayResponse of Video objects.
@@ -501,7 +501,7 @@ class PixabayClient:
             raise PixabayNotFoundError(f"Video {video_id} not found")
         return Video.from_dict(hits_data[0])
 
-    # ── Cleanup ─────────────────────────────────────────────────────────
+    # 鈹€鈹€ Cleanup 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
     def close(self) -> None:
         """Close the underlying HTTP session."""

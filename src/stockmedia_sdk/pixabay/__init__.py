@@ -1,12 +1,12 @@
-"""
-Pixabay API client for stockpile — a clean, typed wrapper for the Pixabay API.
+﻿"""
+Pixabay API client for stockmedia_sdk 鈥?a clean, typed wrapper for the Pixabay API.
 
 Usage::
 
-    from stockpile.pixabay import PixabayClient
+    from stockmedia_sdk.pixabay import PixabayClient
 
     # or via the top-level package:
-    # from stockpile import PixabayClient
+    # from stockmedia_sdk import PixabayClient
 
     client = PixabayClient(api_key="YOUR_API_KEY")
 

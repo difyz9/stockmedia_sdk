@@ -1,9 +1,9 @@
-# 🏦 Stockpile
+﻿# 馃彟 stockmedia_sdk
 
-Python SDKs for free stock media APIs — [Pexels](https://www.pexels.com/api/documentation/) + [Pixabay](https://pixabay.com/api/docs/), cleanly wrapped.
+Python SDKs for free stock media APIs 鈥?[Pexels](https://www.pexels.com/api/documentation/) + [Pixabay](https://pixabay.com/api/docs/), cleanly wrapped.
 
 ```python
-from stockpile import PexelsClient, PixabayClient
+from stockmedia_sdk import PexelsClient, PixabayClient
 
 pexels = PexelsClient(api_key="...")
 pixabay = PixabayClient(api_key="...")
@@ -11,21 +11,21 @@ pixabay = PixabayClient(api_key="...")
 
 ## Features
 
-- ✅ **Pexels**: Photos, Videos, Collections
-- ✅ **Pixabay**: Images, Videos with all quality variants
-- ✅ Full type annotations with frozen dataclass models
-- ✅ Enum-based parameter validation
-- ✅ Auto-pagination helpers (`*_all()` methods)
-- ✅ Rate limit tracking from response headers
-- ✅ Typed exception hierarchy
-- ✅ Retry logic for transient failures
-- ✅ Context manager support
-- ✅ Zero heavy dependencies (only `requests`)
+- 鉁?**Pexels**: Photos, Videos, Collections
+- 鉁?**Pixabay**: Images, Videos with all quality variants
+- 鉁?Full type annotations with frozen dataclass models
+- 鉁?Enum-based parameter validation
+- 鉁?Auto-pagination helpers (`*_all()` methods)
+- 鉁?Rate limit tracking from response headers
+- 鉁?Typed exception hierarchy
+- 鉁?Retry logic for transient failures
+- 鉁?Context manager support
+- 鉁?Zero heavy dependencies (only `requests`)
 
 ## Installation
 
 ```bash
-pip install stockpile
+pip install stockmedia_sdk
 ```
 
 ---
@@ -33,8 +33,8 @@ pip install stockpile
 ## Pexels
 
 ```python
-from stockpile import PexelsClient
-# or: from stockpile.pexels import PexelsClient
+from stockmedia_sdk import PexelsClient
+# or: from stockmedia_sdk.pexels import PexelsClient
 
 client = PexelsClient(api_key="YOUR_API_KEY")
 
@@ -66,7 +66,7 @@ client = PexelsClient(
 ### Search Filters
 
 ```python
-from stockpile import Orientation, Size, Color, Locale
+from stockmedia_sdk import Orientation, Size, Color, Locale
 
 client.search_photos(
     "ocean",
@@ -80,7 +80,7 @@ client.search_photos(
 ### Error Handling
 
 ```python
-from stockpile import (
+from stockmedia_sdk import (
     PexelsError, PexelsAuthenticationError,
     PexelsRateLimitError, PexelsNotFoundError,
 )
@@ -110,8 +110,8 @@ except PexelsRateLimitError as e:
 ## Pixabay
 
 ```python
-from stockpile import PixabayClient
-# or: from stockpile.pixabay import PixabayClient
+from stockmedia_sdk import PixabayClient
+# or: from stockmedia_sdk.pixabay import PixabayClient
 
 client = PixabayClient(api_key="YOUR_API_KEY")
 
@@ -134,7 +134,7 @@ for page in client.search_images_all("sunset", max_pages=3):
 ### Search Filters
 
 ```python
-from stockpile import ImageType, Orientation, Category, Color, Language, Order
+from stockmedia_sdk import ImageType, Orientation, Category, Color, Language, Order
 
 client.search_images(
     "ocean",
@@ -152,7 +152,7 @@ client.search_images(
 ### Error Handling
 
 ```python
-from stockpile import (
+from stockmedia_sdk import (
     PixabayError, PixabayAuthenticationError,
     PixabayRateLimitError, PixabayNotFoundError,
 )
@@ -176,7 +176,7 @@ Replace `_640` in `webformat_url` or use convenience properties:
 img.webformat_url    # max 640px
 img.webformat_180    # 180px tall
 img.webformat_340    # 340px tall
-img.webformat_960    # 960 × 720 px
+img.webformat_960    # 960 脳 720 px
 img.large_image_url  # max 1280px
 ```
 

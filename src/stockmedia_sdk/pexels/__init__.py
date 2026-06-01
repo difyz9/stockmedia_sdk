@@ -1,12 +1,12 @@
-"""
-Pexels API client for stockpile — a clean, typed wrapper for the Pexels API v1.
+﻿"""
+Pexels API client for stockmedia_sdk 鈥?a clean, typed wrapper for the Pexels API v1.
 
 Usage::
 
-    from stockpile.pexels import PexelsClient
+    from stockmedia_sdk.pexels import PexelsClient
 
     # or via the top-level package:
-    # from stockpile import PexelsClient
+    # from stockmedia_sdk import PexelsClient
 
     client = PexelsClient(api_key="YOUR_API_KEY")
 
@@ -79,6 +79,6 @@ __all__ = [
 from importlib.metadata import version as _version
 
 try:
-    __version__ = _version("stockpile")
+    __version__ = _version("stockmedia_sdk")
 except Exception:
     __version__ = "0.0.0.dev"
